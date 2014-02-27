@@ -1,23 +1,12 @@
 
 form {
   fields {
-    input myinput {
-      foo = 'bar'
-
-      attrs {
-        bar = 'baz'
-        baz = 'qux'
-      }
-
+    input foo {
       validators {
-        required = 'message required'
-        minlength(3) = 'message minlength'
-        minlength(3, 'hola') = 'message minlength'
+        required = "required msg"
+        minlength(4) = "minlength msg"
+        custom("foobar") = "custom msg"
       }
-    }
-
-    staticNoWrap {
-      Hola buenas
     }
   }
 }

@@ -12,7 +12,7 @@ describe('Full examples: ', function() {
     var contents = fs.readFileSync('test/fixtures/' + name + '.frm');
     var source = form.parse(contents.toString());
 
-    console.log(require('util').inspect(source, false, null));
+    console.log(form.generate(source));
     callback();
     /*var generated = form.generate(source);
 

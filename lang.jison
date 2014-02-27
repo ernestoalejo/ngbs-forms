@@ -61,10 +61,10 @@
     this.content = content;
   }
 
-  function FValidator(name, arguments, validators) {
+  function FValidator(name, arguments, message) {
     this.name = name;
     this.arguments = arguments;
-    this.validators = validators;
+    this.message = message;
   }
 %}
 
@@ -87,7 +87,7 @@ Descriptors
   ;
 
 Descriptor
-  : NAME EQUAL STRING
+  : NAME EQUAL Literal
     { $$ = new FDescriptor($1, $3); }
   | NAME OPEN_BRACE PlainDescriptors CLOSE_BRACE
     { $$ = new FDescriptor($1, $3); }
@@ -101,15 +101,15 @@ PlainDescriptors
   ;
 
 PlainDescriptor
-  : NAME EQUAL STRING
+  : NAME EQUAL Literal
     { $$ = new FDescriptor($1, $3); }
   ;
 
 Fields
   : /* empty */
     { $$ = []; }
-  | FIELDS OPEN_BRACE FieldList CLOSE_BRACE
-    { $$ = $3 }
+  | FIELDS FieldList
+    { $$ = $2 }
   ;
 
 FieldList
@@ -131,7 +131,7 @@ Field
   | RADIO NAME OPEN_BRACE Descriptors Validators CLOSE_BRACE
     { $$ = new FRadio($2, $4, $5); }
   | SUBMIT NAME OPEN_BRACE Descriptors CLOSE_BRACE
-    { $$ = new FSubmit($2, $4, $5); }
+    { $$ = new FSubmit($2, $4); }
   | STATIC BracedContent
     { $$ = new FStatic($2.join('')); }
   | STATIC_NO_WRAP BracedContent
@@ -183,6 +183,12 @@ ArgumentList
 Argument
   : STRING
   | NUMBER
+  ;
+
+Literal
+  : STRING
+  | NUMBER
+  | BOOLEAN
   ;
 
 %%
