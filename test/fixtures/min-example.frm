@@ -1,8 +1,10 @@
 
 form {
   fields {
-    submit {
-
+    input foo {}
+    staticNoWrap {
+      label blbh blah blah
     }
+    input bar {}
   }
 }
