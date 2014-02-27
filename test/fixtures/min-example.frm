@@ -1,11 +1,12 @@
 
 form {
   fields {
-    input foo {
+    textarea foo {
+      label = 'foo'
+      rows = 3
+
       validators {
-        required = "required msg"
-        minlength(4) = "minlength msg"
-        custom("foobar") = "custom msg"
+        required = 'foo required'
       }
     }
   }
