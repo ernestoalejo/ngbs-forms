@@ -1,10 +1,11 @@
 
 form {
   fields {
-    input foo {}
-    staticNoWrap {
-      label blbh blah blah
+    radio foo {
+      options {
+        foo = 'Foo'
+        bar = 'Bar'
+      }
     }
-    input bar {}
   }
 }
