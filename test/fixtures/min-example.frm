@@ -1,12 +1,21 @@
 
 form {
   fields {
-    textarea foo {
+    select foo {
       label = 'foo'
-      rows = 3
+
+      options {
+        foo = 'bar'
+      }
+
+      ngRepeatOptions {
+        repeat = 'item in items'
+        value = 'gola'
+        label = 'tt'
+      }
 
       validators {
-        required = 'foo required'
+        required = 'tt'
       }
     }
   }
