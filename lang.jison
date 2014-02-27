@@ -45,9 +45,8 @@
     this.validators = validators;
   }
 
-  function FSubmit(name, descriptors) {
+  function FSubmit(descriptors) {
     this.type = 'submit';
-    this.name = name;
     this.descriptors = descriptors;
   }
 
@@ -130,8 +129,8 @@ Field
     { $$ = new FCheckbox($2, $4, $5); }
   | RADIO NAME OPEN_BRACE Descriptors Validators CLOSE_BRACE
     { $$ = new FRadio($2, $4, $5); }
-  | SUBMIT NAME OPEN_BRACE Descriptors CLOSE_BRACE
-    { $$ = new FSubmit($2, $4); }
+  | SUBMIT OPEN_BRACE Descriptors CLOSE_BRACE
+    { $$ = new FSubmit($3); }
   | STATIC BracedContent
     { $$ = new FStatic($2.join('')); }
   | STATIC_NO_WRAP BracedContent
