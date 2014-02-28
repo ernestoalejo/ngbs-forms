@@ -12,15 +12,27 @@ describe('Full examples: ', function() {
     var contents = fs.readFileSync('test/fixtures/' + name + '.frm');
     var source = form.parse(contents.toString());
 
-    console.log(form.generate(source));
-    callback();
-    /*var generated = form.generate(source);
+    var generated = form.generate(source);
 
     var expected = fs.readFileSync('test/expected/' + name + '.html');
     mkdirp(path.dirname('tmp/' + name + '.html'), function() {
       fs.writeFileSync('tmp/' + name + '.html', generated);
       expect(generated).to.be(expected.toString());
       callback();
-    });*/
+    });
+  });
+  it('should generate the full example', function(callback) {
+    var name = 'full-example';
+    var contents = fs.readFileSync('test/fixtures/' + name + '.frm');
+    var source = form.parse(contents.toString());
+
+    var generated = form.generate(source);
+
+    var expected = fs.readFileSync('test/expected/' + name + '.html');
+    mkdirp(path.dirname('tmp/' + name + '.html'), function() {
+      fs.writeFileSync('tmp/' + name + '.html', generated);
+      expect(generated).to.be(expected.toString());
+      callback();
+    });
   });
 });

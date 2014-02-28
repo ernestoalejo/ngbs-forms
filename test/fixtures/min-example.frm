@@ -1,5 +1,6 @@
 
 form {
   fields {
+    input foo {}
   }
 }

@@ -88,6 +88,8 @@ Descriptors
 Descriptor
   : NAME EQUAL Literal
     { $$ = new FDescriptor($1, $3); }
+  | NAME EQUAL OPEN_BRACE PlainDescriptors CLOSE_BRACE
+    { $$ = new FDescriptor($1, $4); }
   | NAME OPEN_BRACE PlainDescriptors CLOSE_BRACE
     { $$ = new FDescriptor($1, $3); }
   ;
@@ -159,7 +161,7 @@ ValidatorList
   ;
 
 Validator
-  : NAME Arguments EQUAL STRING
+  : NAME Arguments EQUAL String
     { $$ = new FValidator($1, $2, $4); }
   ;
 
@@ -180,14 +182,21 @@ ArgumentList
   ;
 
 Argument
-  : STRING
+  : String
   | NUMBER
   ;
 
 Literal
-  : STRING
+  : String
   | NUMBER
   | BOOLEAN
+  ;
+
+String
+  : /* empty */
+    { $$ = ''; }
+  | STRING String
+    { $$ = $1 + $2; }
   ;
 
 %%
