@@ -2,7 +2,7 @@
 Input field
 ===========
 
-They generate `<input>` tags in the form (except checkboxes and radios, there's
+It generates a `<input>` tag in the form (except checkboxes and radios, there's
 another kind of fields for that).
 
  * [attrs](#attrs)
