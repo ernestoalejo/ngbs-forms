@@ -10,7 +10,15 @@ ngbs-forms
  * [Form files](#validator-files)
  * [Form descriptors reference](#form-descriptors-reference)
  * [Fields reference](#fields-reference)
- * [Validators reference](#validators-reference)
+     * [Input field](docs/fields/input.md)
+     * [Textarea field](docs/fields/textarea.md)
+     * [Select field](docs/fields/select.md)
+     * [Submit field](docs/fields/submit.md)
+     * [Checkbox field](docs/fields/checkbox.md)
+     * [Radio field](docs/fields/radio.md)
+     * [Static field](docs/fields/static.md)
+     * [StaticNoWrap field](docs/fields/staticNoWrap.md)
+ * [Validators reference](docs/validators.md)
 
 
 ## <a name="install"></a> Install
@@ -79,7 +87,8 @@ a string with the generated HTML code.
 Form files are written in a custom and concise language.
 
  * [Forms](#forms)
- * [Fields](#fields)
+ * [Normal fields](#normal-fields)
+ * [Static fields](#static-fields)
  * [Validators](#validators)
  * [Comments](#comments)
 
@@ -91,7 +100,7 @@ The basic structure of a file describes a form.
 ```
 form {
   fields {
-    [...my fields here...]
+    [... my fields here ...]
   }
 }
 ```
@@ -103,13 +112,13 @@ form {
   name = 'myformname'
 
   fields {
-    [...my fields here...]
+    [... my fields here ...]
   }
 }
 ```
 
 
-### <a name="fields"></a> Fields
+### <a name="normal-fields"></a> Normal fields
 
 Most of the fields (like inputs, selects, checkboxes, etc.) receive a list of
 descriptors and the validators for that field.
@@ -141,6 +150,41 @@ form {
         style = 'width: 150px;'
         my-custom-attr = 'my-custom-value'
       }
+    }
+  }
+}
+```
+
+
+### <a name="static-fields"></a> Static fields
+
+There are two special type of fields that wrap static HTML and don't need any
+descriptor. They're `static` and `staticNoWrap`. The first one will be wrapped
+as if it would be a field (so you can style it pretty much like if it was one).
+The second will be raw HTML added to the form that allows you to make sections,
+wrap some fields in a frame, etc.
+
+Some examples:
+
+```
+form {
+  fields {
+    input foo {}
+    static {
+      <p class="helper-block">Some static text added to the form</p>
+    }
+
+    staticNoWrap {
+      <div class="panel panel-default">
+        <div class="panel-body">
+    }
+
+    input bar {}
+    input baz {}
+
+    staticNoWrap {
+        </div>
+      </div>
     }
   }
 }
@@ -188,216 +232,117 @@ form {
 ```
 
 
-## <a name="requirements-reference"></a> Requirements reference
+## <a name="form-descriptors-reference"></a> Form descriptors reference
 
- * [custom](#custom)
- * [datetime](#datetime)
- * [email](#email)
- * [in](#in)
- * [inarray](#inarray)
- * [length](#length)
- * [match](#match)
- * [maxdatetime](#maxdatetime)
- * [maxlength](#maxlength)
- * [maxvalue](#maxvalue)
- * [mindatetime](#mindatetime)
- * [minlength](#minlength)
- * [minvalue](#minvalue)
- * [positive](#positive)
- * [regexp](#regexp)
- * [required](#required)
- * [store](#store)
- * [url](#url)
- * [use](#use)
+ * [name](#form-name)
+ * [objName](#form-objName)
+ * [trySubmit](#form-trySubmit)
+ * [submit](#form-submit)
+ * [noFieldset](#form-noFieldset)
 
 
-### <a name="custom"></a> custom
-*Applies to*: `string`, `boolean`, `integer`, `float`.
-*Args*: `code (string)`.
-*Requires*: `store`
+### <a name="form-name"></a> name
+*Default*: `f[counter]`
+*Type*: `string`
 
-Allows you to apply custom validations **to this field**. If you want to apply more
-general conditions use [Conditionals](#conditionals) better.
+The name of the form. Things to take into account:
 
-It requires that you store first the value of the field.
+  * Changing this will the name of the variable Angular will scope to access
+    this form ($scope.newname).
+  * All the fields IDs are prefixed with the name of the form, so it should be as
+    shorter as possible.
+  * If not specified the library maintains a global counter to generate `f0`, `f1`
+    and so on.
 
-The argument received should be valid PHP code.
+
+### <a name="form-objName"></a> objName
+*Default*: `data`
+*Type*: `string`
+
+The name of the object that will store the form data. You can later access the
+sent data using `$scope.data` or whatever objName you assign to the form.
+
+
+### <a name="form-trySubmit"></a> trySubmit
+*Default*: (empty)
+*Type*: `string`
+
+The name of a scoped function that will be called when the user tries to submit
+the form but it hasn't be successful (it has validation errors). If empty no
+function will be called.
+
+For example, if you want to show an alert when the user tries to submit the form
+(not a practical idea, but anyway) you'll have to specify `trySubmit`:
 
 ```
-string myfield {
-  required
-  minlength(3)
+form {
+  trySubmit = 'alertTheUser'
 
-  store("myfield")
-
-  custom("$store['myfield'] === 'foo'")
+  fields {
+    [... my fields here ...]
+  }
 }
 ```
 
-
-### <a name="datetime"></a> datetime
-*Applies to*: `string`.
-*Args*: `no args`.
-
-Checks that the field it's a valid datetime. It uses the Carbon library, so the
-expected formats are any of the accepted ones by the constructor.
-
-
-### <a name="email"></a> email
-*Applies to*: `string`.
-*Args*: `no args`.
-
-Validates email addresses using the same regular expression that Angular.JS uses.
-
-
-### <a name="in"></a> in
-*Applies to*: `string`.
-*Args*: `values (string)`.
-
-Checks that the received string is one of the provided. You can specify as many
-arguments as you need.
+Then you'll have to scope that function in the Angular controller:
 
 ```
-string foo {
-  in("foo")
-}
+.controller('MyController', function($scope) {
+  $scope.data = {};
 
-string foobar {
-  in("foo", "bar", "baz", "qux")
-}
+  // Called each time the user tries to send the form
+  $scope.alertTheUser = function() {
+    alert('Sending form...');
+  };
+
+  // Called when all the validations are successful
+  $scope.submit = function() {
+    // Whatever to send the form
+  };
+});
 ```
 
 
-### <a name="inarray"></a> inarray
-*Applies to*: `string`.
-*Args*: `array name (string)`.
+### <a name="form-submit"></a> submit
+*Default*: `submit`
+*Type*: `string`
 
-The same as `in`, but allows you to easily read a runtime array for the list.
-
-```
-string lang {
-  required
-  use("Config")
-  inarray("Config::get('langs.available')")
-}
-```
+The name of a scoped function that will be called when the user submits
+the form.
 
 
-### <a name="length"></a> length
-*Applies to*: `string`.
-*Args*: `length (integer)`.
+### <a name="form-noFieldset"></a> noFieldset
+*Default*: `false`
+*Type*: `boolean`
 
-The length of the string should match exactly that number of characters.
-
-
-### <a name="match"></a> match
-*Applies to*: `string`.
-*Args*: `stored (string)`.
-
-Checks that the value matchs a previously stored one.
+If it's true the form won't be wrapped in a `fieldset` tag. Useful when you have
+to specify special styles to make the form inline with other elements
+(navbar for example)
 
 
-### <a name="maxdatetime"></a> maxdatetime
-*Applies to*: `string`.
-*Args*: `datetime (string)`.
-*Requires*: `datetime`.
+## <a name="fields-reference"></a> Fields reference
 
-Check value to see if it's equal or before the specified limit. Datetime could be any
-string that the Carbon constructor can read.
-
-
-### <a name="maxlength"></a> maxlength
-*Applies to*: `string`.
-*Args*: `length (integer)`.
-
-Checks that the string has less or equal characters than the maximum.
+ * [Input field](docs/fields/input.md)
+ * [Textarea field](docs/fields/textarea.md)
+ * [Select field](docs/fields/select.md)
+ * [Submit field](docs/fields/submit.md)
+ * [Checkbox field](docs/fields/checkbox.md)
+ * [Radio field](docs/fields/radio.md)
+ * [Static field](docs/fields/static.md)
+ * [StaticNoWrap field](docs/fields/staticNoWrap.md)
 
 
-### <a name="maxvalue"></a> maxvalue
-*Applies to*: `integer`, `float`.
-*Args*: `limit (integer)`.
+## <a name="validators-reference"></a> Validators reference
 
-Checks that the field value it's less or equal than the provided limit (it's inclusive).
-
-
-### <a name="mindatetime"></a> mindatetime
-*Applies to*: `string`.
-*Args*: `datetime (string)`.
-*Requires*: `datetime`.
-
-Check value to see if it's equal or after the specified limit. Datetime could be any
-string that the Carbon constructor can read.
+ * [name](#form-name)
+ * [objName](#form-objName)
+ * [trySubmit](#form-trySubmit)
+ * [submit](#form-submit)
+ * [noFieldset](#form-noFieldset)
 
 
-### <a name="minlength"></a> minlength
-*Applies to*: `string`.
-*Args*: `length (integer)`.
+### <a name="form-name"></a> name
+*Default*: `f[counter]`
+*Type*: `string`
 
-If the string is not empty, it should have at least that number of characters.
-To check for empty strings use the `required` requirement.
-
-
-### <a name="minvalue"></a> minvalue
-*Applies to*: `integer`, `float`.
-*Args*: `limit (integer)`.
-
-Checks that the field value it's equal or greater than the provided limit (it's inclusive).
-
-
-### <a name="positive"></a> positive
-*Applies to*: `integer`, `float`.
-*Args*: `no args`.
-
-Checks the value to see if it's equal or greater than zero. It's equivalent to `minvalue(0)`.
-
-
-### <a name="regexp"></a> regexp
-*Applies to*: `string`.
-*Args*: `regexp (string)`.
-
-Apply a regexp to the value to see if it matches. Remember the regexp should be valid in PHP.
-
-```
-string myfield {regexp("/[a-z][0-9]/")}
-```
-
-### <a name="required"></a> required
-*Applies to*: `string`.
-*Args*: `no args`.
-
-The string should have one or more characters.
-
-
-### <a name="store"></a> store
-*Applies to*: `string`, `integer`, `float`, `boolean`.
-*Args*: `name (string)`.
-
-Save the value of this field in the `$store` array, under the provided name. You
-can later access it in conditionals and switchs like `$store['name']`.
-
-See [Conditionals](#conditionals) for more info.
-
-
-### <a name="url"></a> url
-*Applies to*: `string`.
-*Args*: `no args`.
-
-Validate URLs using the same regular expression Angular.JS uses.
-
-
-### <a name="use"></a> use
-*Applies to*: `string`, `boolean`, `integer`, `float`.
-*Args*: `class (string)`.
-
-Imports a new class into the runtime PHP file.
-
-```
-string lang {
-  required
-  use("Config")
-  store("lang")
-  custom("Config::get('langs.' . $store['lang']) === 'active'")
-}
-```
-
-
+The name of the form. Things to take into account:
