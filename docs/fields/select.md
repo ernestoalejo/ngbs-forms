@@ -158,3 +158,44 @@ will generate some HTML like this:
   <option ng-repeat="item in list" value="{{ item.value }}">My {{ item.label }}</option>
 </select>
 ```
+
+It can also be combined with the `options` descriptor to make additional options.
+
+```
+form {
+  fields {
+    select foo {
+      ngRepeatOptions {
+        repeat = 'item in list'
+        value = '{{ item.value }}'
+        label = '{{ item.value }}'
+      }
+
+      options {
+        foo = 'Another great option'
+        bar = 'A not so great option'
+      }
+    }
+  }
+}
+```
+
+
+### <a name="options"></a> options
+*Default*: '{}'
+*Type*: `Object`
+
+List of static options for the select.
+
+```
+form {
+  fields {
+    select type {
+      options {
+        particular = 'Particular User'
+        company = 'Company User'
+      }
+    }
+  }
+}
+```
