@@ -7,9 +7,9 @@ ngbs-forms
  * [Install](#install)
  * [Getting started](#getting-started)
  * [API](#API)
- * [Form files](#validator-files)
+ * [Form files](#form-files)
  * [Form descriptors reference](#form-descriptors-reference)
- * [Fields reference](#fields-reference)
+ * [Fields and their descriptors reference](#fields-reference)
      * [Input field](docs/fields/input.md)
      * [Textarea field](docs/fields/textarea.md)
      * [Select field](docs/fields/select.md)
@@ -88,6 +88,7 @@ Form files are written in a custom and concise language.
 
  * [Forms](#forms)
  * [Normal fields](#normal-fields)
+ * [Submit fields](#submit-fields)
  * [Static fields](#static-fields)
  * [Validators](#validators)
  * [Comments](#comments)
@@ -121,7 +122,7 @@ form {
 ### <a name="normal-fields"></a> Normal fields
 
 Most of the fields (like inputs, selects, checkboxes, etc.) receive a list of
-descriptors and the validators for that field.
+descriptors and the validators for that field. Also they need an internal name.
 
 For example, a simple input with the label and the placeholder setted. It will
 save the data to "$scope.data.foo".
@@ -156,7 +157,27 @@ form {
 ```
 
 
+### <a name="submit-fields"></a> Submit fields
+
+Forms typically need a submit field. They don't need a name and have descriptors
+like the normal ones. For example:
+
+```
+form {
+  fields {
+    input foo {}
+    input bar {}
+
+    submit {
+      label = 'Send button'
+    }
+  }
+}
+```
+
+
 ### <a name="static-fields"></a> Static fields
+
 
 There are two special type of fields that wrap static HTML and don't need any
 descriptor. They're `static` and `staticNoWrap`. The first one will be wrapped
@@ -320,7 +341,7 @@ to specify special styles to make the form inline with other elements
 (navbar for example)
 
 
-## <a name="fields-reference"></a> Fields reference
+## <a name="fields-reference"></a> Fields and their descriptors reference
 
  * [Input field](docs/fields/input.md)
  * [Textarea field](docs/fields/textarea.md)
