@@ -171,7 +171,35 @@ Requires a positive integer.
 for an example).
 
 
- * [regexp](#regexp)
- * [required](#required)
- * [url](#url)
+### <a name="regexp"></a> regexp
+*Applies to*: `input`, `textarea`.
+*Args*: `regular expression (string)`.
 
+Performs a regexp check over the field value to see if it matchs. Remember to include
+`^` at the start and `$` at the end if you want to check the entire string.
+
+```
+form {
+  fields {
+    input foo {
+      validators {
+        regexp('/^[a-z]+$/') = 'The field foo should be lowercase'
+      }
+    }
+  }
+}
+```
+
+
+### <a name="required"></a> required
+*Applies to*: `input`, `textarea`, `select`.
+*Args*: (no args).
+
+The field cannot be empty.
+
+
+### <a name="url"></a> url
+*Applies to*: `input`.
+*Args*: (no args).
+
+Checks the input field to see if it's a correctly formatted URL address.
