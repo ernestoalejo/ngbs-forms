@@ -351,19 +351,3 @@ to specify special styles to make the form inline with other elements
  * [Radio field](docs/fields/radio.md)
  * [Static field](docs/fields/static.md)
  * [StaticNoWrap field](docs/fields/staticNoWrap.md)
-
-
-## <a name="validators-reference"></a> Validators reference
-
- * [name](#form-name)
- * [objName](#form-objName)
- * [trySubmit](#form-trySubmit)
- * [submit](#form-submit)
- * [noFieldset](#form-noFieldset)
-
-
-### <a name="form-name"></a> name
-*Default*: `f[counter]`
-*Type*: `string`
-
-The name of the form. Things to take into account:
