@@ -1,5 +1,5 @@
 
-v0.1.1 [29 Feb 2014]
+v0.1.2 [29 Feb 2014]
 ====================
 
  * Fix styling problems in checkboxes and radios.
