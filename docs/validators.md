@@ -203,3 +203,5 @@ The field cannot be empty.
 *Args*: (no args).
 
 Checks the input field to see if it's a correctly formatted URL address.
+
+**NOTE:** You have to set the type of the input to `url` for this to work.
