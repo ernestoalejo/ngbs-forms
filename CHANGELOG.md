@@ -1,4 +1,10 @@
 
+v0.1.3 [14 Mar 2014]
+====================
+
+ * Fix problems escaping quotes inside strings.
+
+
 v0.1.2 [29 Feb 2014]
 ====================
 
