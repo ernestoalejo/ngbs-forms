@@ -86,7 +86,7 @@ module.exports = function(form) {
     .label('Datepicker field')
     .placeholder('DD/MM/AAAA')
     .attrs({
-      'datepicker-poup': 'dd/MM/yyyy',
+      'datepicker-popup': 'dd/MM/yyyy',
       'datepicker-manual': '',
       'datepicker-options': 'datepickerOptions',
     })
@@ -103,7 +103,7 @@ module.exports = function(form) {
   form.checkbox('mycheckbox')
     .label('My checkbox');
 
-  form.radio('radios')
+  form.radios('radios')
     .label('My radios')
     .options({
       foo: 'Foo option',

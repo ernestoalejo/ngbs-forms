@@ -14,7 +14,7 @@
     <label for="f1myinputv" class="control-label">Email</label>
 
     <div>
-      <input type="email" placeholder="test@example" class="form-control" name="f1myinputv" id="f1myinputv" ng-model="data.myinputv" myarg1="myvalue1" myarg2="myvalue2" required="" ng-minlength="3" ng-maxlength="4">
+      <input type="email" placeholder="test@example.com" class="form-control" name="f1myinputv" id="f1myinputv" ng-model="data.myinputv" myarg1="myvalue1" myarg2="myvalue2" required="" ng-minlength="3" ng-maxlength="4">
     </div>
 
     <span class="help-block" ng-show="f1.sent && (f1['f1myinputv'].$invalid)">
@@ -99,7 +99,7 @@
     </select>
 
     <span class="help-block" ng-show="f1.sent && (f1['f1myselectoptions'].$invalid || (!f1['f1myselectoptions'].$dirty && ((myexpr))))">
-      <span ng-show="!f1['f1myselectoptions'].$dirty && f1['f1myselectoptions'].$valid && (myexpr)">My message</span>
+      <span ng-show="!f1['f1myselectoptions'].$dirty && f1['f1myselectoptions'].$valid && ((myexpr))">My message</span>
     </span>
 
   </div>
@@ -132,10 +132,10 @@
 
   <div class="form-group">
     
-        <label class="control-label">My Static</label>
+    <label for="" class="control-label">My Static</label>
 
-        <p>static content</p>
-      
+    <p>static content</p>
+
   </div>
 
   <div class="form-group" ng-class="{'has-error': f1.sent && (f1['f1datepicker'].$invalid)}">
@@ -143,7 +143,7 @@
     <label for="f1datepicker" class="control-label">Datepicker field</label>
 
     <div>
-      <input type="text" placeholder="DD/MM/AAAA" class="form-control" name="f1datepicker" id="f1datepicker" ng-model="data.datepicker" datepicker-popup="dd/MM/yyyy" datepicker-manual="" datepicker-options="datepickerOptions" required="" min="minDate" min-date-value="minDate">
+      <input type="text" placeholder="DD/MM/AAAA" class="form-control" name="f1datepicker" id="f1datepicker" ng-model="data.datepicker" datepicker-popup="dd/MM/yyyy" datepicker-manual="" datepicker-options="datepickerOptions" required="" min-date-value="minDate">
     </div>
 
     <span class="help-block" ng-show="f1.sent && (f1['f1datepicker'].$invalid)">
@@ -154,9 +154,7 @@
 
   </div>
 
-
-        <p>static no wrapper content</p>
-      
+  <p>static no wrapper content</p>
 
   <div class="form-group">
 
