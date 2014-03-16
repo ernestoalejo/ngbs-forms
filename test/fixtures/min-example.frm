@@ -1,6 +1,0 @@
-
-form {
-  fields {
-    input foo {}
-  }
-}
