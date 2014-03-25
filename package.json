@@ -1,6 +1,6 @@
 {
   "name": "ngbs-forms",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generate forms using Angular for validations and Bootstrap for styles from short and concise descriptions of the fields.",
   "main": "index.js",
   "scripts": {
