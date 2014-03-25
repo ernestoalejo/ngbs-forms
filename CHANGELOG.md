@@ -1,4 +1,11 @@
 
+v1.0.2 [25 Mar 2014]
+====================
+
+ * Fix required textareas.
+ * Fix JS file extension.
+
+
 v1.0.1 [16 Mar 2014]
 ====================
 
