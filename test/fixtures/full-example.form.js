@@ -2,6 +2,10 @@
 
 
 module.exports = function(form) {
+  form.attrs({
+    foo: 'bar',
+  });
+  
   form.input('myinput');
 
   form.input('myinputv')

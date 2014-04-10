@@ -1,5 +1,6 @@
 'use strict';
 
+
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     mocha = require('gulp-mocha'),
@@ -10,12 +11,15 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     clean = require('gulp-clean');
 
+
 gulp.task('default', ['watch', 'jison']);
+
 
 gulp.task('clean', function() {
   return gulp.src('tmp/**', {read: false})
     .pipe(clean());
 });
+
 
 gulp.task('lint', function() {
   return gulp.src(['gulpfile.js', 'test/**/*.js', 'lib/**/*.js'])
@@ -24,10 +28,12 @@ gulp.task('lint', function() {
     .pipe(jshint.reporter('fail'));
 });
 
+
 gulp.task('test', ['clean'], function() {
   return gulp.src(['test/**/test-*.js'], {read: false})
     .pipe(mocha({reporter: 'spec'}));
 });
+
 
 gulp.task('watch', function() {
   return gulp.src(['lang.js', 'lib/**/*.js', 'test/**'], {read: false})
@@ -42,6 +48,7 @@ gulp.task('watch', function() {
         });
     }));
 });
+
 
 gulp.task('jison', function() {
   return gulp.src('lang.jison')

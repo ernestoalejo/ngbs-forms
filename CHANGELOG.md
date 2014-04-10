@@ -1,4 +1,10 @@
 
+v1.1.0 [10 Apr 2014]
+====================
+
+ * Add attrs support for the whole form.
+
+
 v1.0.3 [01 Apr 2014]
 ====================
 
