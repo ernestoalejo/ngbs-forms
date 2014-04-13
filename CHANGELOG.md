@@ -1,4 +1,10 @@
 
+v1.2.0 [10 Apr 2014]
+====================
+
+ * Change the name of the form without changing the prefix of the fields.
+
+
 v1.1.0 [10 Apr 2014]
 ====================
 
