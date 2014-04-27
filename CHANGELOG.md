@@ -1,4 +1,10 @@
 
+v1.2.1 [27 Apr 2014]
+====================
+
+ * Implement the noFieldset form option (thanks Rodrigo Valerio!)
+
+
 v1.2.0 [10 Apr 2014]
 ====================
 
