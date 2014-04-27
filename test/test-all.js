@@ -43,4 +43,16 @@ describe('Full examples: ', function() {
       callback();
     });
   });
+
+  it('should generate form with no fieldset', function(callback) {
+    var name = 'noFieldset-example';
+    var generated = form.generate('test/fixtures/' + name + '.form.js');
+
+    var expected = fs.readFileSync('test/expected/' + name + '.html');
+    mkdirp(path.dirname('tmp/' + name + '.html'), function() {
+      fs.writeFileSync('tmp/' + name + '.html', generated);
+      expect(generated).to.be(expected.toString());
+      callback();
+    });
+  });
 });
