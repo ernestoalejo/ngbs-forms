@@ -4,82 +4,82 @@
   <div class="form-group">
 
     <div>
-      <input type="text" placeholder="" class="form-control" name="f1myinput" id="f1myinput" ng-model="data.myinput">
+      <input type="text" placeholder="" class="form-control" name="myinput" id="myinput" ng-model="data.myinput">
     </div>
 
   </div>
 
-  <div class="form-group" ng-class="{'has-error': f1.sent && (f1['f1myinputv'].$invalid)}">
+  <div class="form-group" ng-class="{'has-error': f1.sent && (f1['myinputv'].$invalid)}">
     
-    <label for="f1myinputv" class="control-label">Email</label>
+    <label for="myinputv" class="control-label">Email</label>
 
     <div>
-      <input type="email" placeholder="test@example.com" class="form-control" name="f1myinputv" id="f1myinputv" ng-model="data.myinputv" myarg1="myvalue1" myarg2="myvalue2" required="" ng-minlength="3" ng-maxlength="4">
+      <input type="email" placeholder="test@example.com" class="form-control" name="myinputv" id="myinputv" ng-model="data.myinputv" myarg1="myvalue1" myarg2="myvalue2" required="" ng-minlength="3" ng-maxlength="4">
     </div>
 
-    <span class="help-block" ng-show="f1.sent && (f1['f1myinputv'].$invalid)">
-      <span ng-show="f1['f1myinputv'].$error.required">El email es obligatorio</span>
-      <span ng-show="f1['f1myinputv'].$error.minlength">El email debe tener al menos 3 caracteres</span>
-      <span ng-show="f1['f1myinputv'].$error.maxlength">El email debe tener como mucho 4 caracteres</span>
-      <span ng-show="f1['f1myinputv'].$error.email">required email</span>
+    <span class="help-block" ng-show="f1.sent && (f1['myinputv'].$invalid)">
+      <span ng-show="f1['myinputv'].$error.required">El email es obligatorio</span>
+      <span ng-show="f1['myinputv'].$error.minlength">El email debe tener al menos 3 caracteres</span>
+      <span ng-show="f1['myinputv'].$error.maxlength">El email debe tener como mucho 4 caracteres</span>
+      <span ng-show="f1['myinputv'].$error.email">required email</span>
     </span>
 
   </div>
 
-  <div class="form-group" ng-class="{'has-error': f1.sent && (f1['f1myinputaffix'].$invalid)}">
+  <div class="form-group" ng-class="{'has-error': f1.sent && (f1['myinputaffix'].$invalid)}">
 
     <div>
       <div class="input-group">
         <span class="input-group-addon">myprefix</span>
-        <input type="text" placeholder="" class="form-control" name="f1myinputaffix" id="f1myinputaffix" ng-model="data.myinputaffix" ng-minlength="3" ng-pattern="/^[a-z]$/">
+        <input type="text" placeholder="" class="form-control" name="myinputaffix" id="myinputaffix" ng-model="data.myinputaffix" ng-minlength="3" ng-pattern="/^[a-z]$/">
         <span class="input-group-addon">mysuffix</span>
       </div>
     </div>
 
-    <span class="help-block" ng-show="f1.sent && (f1['f1myinputaffix'].$invalid)">
-      <span ng-show="f1['f1myinputaffix'].$error.minlength">El email debe tener al menos 3 caracteres</span>
-      <span ng-show="f1['f1myinputaffix'].$error.pattern">My pattern</span>
+    <span class="help-block" ng-show="f1.sent && (f1['myinputaffix'].$invalid)">
+      <span ng-show="f1['myinputaffix'].$error.minlength">El email debe tener al menos 3 caracteres</span>
+      <span ng-show="f1['myinputaffix'].$error.pattern">My pattern</span>
     </span>
 
   </div>
 
-  <div class="form-group" ng-class="{'has-error': f1.sent && (f1['f1myinputmyid'].$invalid)}">
+  <div class="form-group" ng-class="{'has-error': f1.sent && (f1['myinputmyid'].$invalid)}">
     
     <label for="myidtest" class="control-label">myid</label>
 
     <div>
-      <input type="text" placeholder="" class="form-control" name="f1myinputmyid" id="myidtest" ng-model="data.myinputmyid" required="">
+      <input type="text" placeholder="" class="form-control" name="myinputmyid" id="myidtest" ng-model="data.myinputmyid" required="">
     </div>
 
-    <span class="help-block" ng-show="f1.sent && (f1['f1myinputmyid'].$invalid)">
-      <span ng-show="f1['f1myinputmyid'].$error.required">required validation with the name</span>
+    <span class="help-block" ng-show="f1.sent && (f1['myinputmyid'].$invalid)">
+      <span ng-show="f1['myinputmyid'].$error.required">required validation with the name</span>
     </span>
 
   </div>
 
-  <div class="form-group" ng-class="{'has-error': f1.sent && (f1['f1myint'].$invalid)}">
+  <div class="form-group" ng-class="{'has-error': f1.sent && (f1['myint'].$invalid)}">
 
     <div>
-      <input type="number" placeholder="" class="form-control" name="f1myint" id="f1myint" ng-model="data.myint" min="10" max="99">
+      <input type="number" placeholder="" class="form-control" name="myint" id="myint" ng-model="data.myint" min="10" max="99">
     </div>
 
-    <span class="help-block" ng-show="f1.sent && (f1['f1myint'].$invalid)">
-      <span ng-show="f1['f1myint'].$error.number">integer required</span>
-      <span ng-show="f1['f1myint'].$error.min">at least 10 required</span>
-      <span ng-show="f1['f1myint'].$error.max">at max 99 required</span>
+    <span class="help-block" ng-show="f1.sent && (f1['myint'].$invalid)">
+      <span ng-show="f1['myint'].$error.number">integer required</span>
+      <span ng-show="f1['myint'].$error.min">at least 10 required</span>
+      <span ng-show="f1['myint'].$error.max">at max 99 required</span>
     </span>
 
   </div>
 
-  <div class="form-group" ng-class="{'has-error': f1.sent && (f1['f1myintzero'].$invalid)}">
+  <div class="form-group" ng-class="{'has-error': f1.sent && (f1['myintzero'].$invalid)}">
 
     <div>
-      <input type="number" placeholder="" class="form-control" name="f1myintzero" id="f1myintzero" ng-model="data.myintzero" min="0">
+      <input type="number" placeholder="" class="form-control" name="myintzero" id="myintzero" ng-model="data.myintzero" min="0">
     </div>
 
-    <span class="help-block" ng-show="f1.sent && (f1['f1myintzero'].$invalid)">
-      <span ng-show="f1['f1myintzero'].$error.number">integer required</span>
-      <span ng-show="f1['f1myintzero'].$error.min">at least 0 required</span>
+    <span class="help-block" ng-show="f1.sent && (f1['myintzero'].$invalid)">
+      <span ng-show="f1['myintzero'].$error.number">integer required</span>
+      <span ng-show="f1['myintzero'].$error.min">at least 0 required</span>
     </span>
 
   </div>
@@ -87,33 +87,33 @@
   <div class="form-group">
 
     <div>
-      <select class="form-control" name="f1myselect" id="f1myselect" ng-model="data.myselect">
+      <select class="form-control" name="myselect" id="myselect" ng-model="data.myselect">
       </select>
     </div>
 
   </div>
 
-  <div class="form-group" ng-class="{'has-error': f1.sent && (f1['f1myselectoptions'].$invalid || (!f1['f1myselectoptions'].$dirty && ((myexpr))))}">
+  <div class="form-group" ng-class="{'has-error': f1.sent && (f1['myselectoptions'].$invalid || (!f1['myselectoptions'].$dirty && ((myexpr))))}">
 
     <div>
-      <select class="form-control" name="f1myselectoptions" id="f1myselectoptions" ng-model="data.myselectoptions">
+      <select class="form-control" name="myselectoptions" id="myselectoptions" ng-model="data.myselectoptions">
         <option value="myvalue1">mylabel1</option>
         <option value="myvalue2">mylabel2</option>
       </select>
     </div>
 
-    <span class="help-block" ng-show="f1.sent && (f1['f1myselectoptions'].$invalid || (!f1['f1myselectoptions'].$dirty && ((myexpr))))">
-      <span ng-show="!f1['f1myselectoptions'].$dirty && f1['f1myselectoptions'].$valid && ((myexpr))">My message</span>
+    <span class="help-block" ng-show="f1.sent && (f1['myselectoptions'].$invalid || (!f1['myselectoptions'].$dirty && ((myexpr))))">
+      <span ng-show="!f1['myselectoptions'].$dirty && f1['myselectoptions'].$valid && ((myexpr))">My message</span>
     </span>
 
   </div>
 
   <div class="form-group">
     
-    <label for="f1myselectng" class="control-label">Select label</label>
+    <label for="myselectng" class="control-label">Select label</label>
 
     <div>
-      <select class="form-control" name="f1myselectng" id="f1myselectng" ng-model="data.myselectng" ng-options="items in list">
+      <select class="form-control" name="myselectng" id="myselectng" ng-model="data.myselectng" ng-options="items in list">
       </select>
     </div>
 
@@ -122,7 +122,7 @@
   <div class="form-group">
 
     <div>
-      <select class="form-control" name="f1myselectrepeat" id="f1myselectrepeat" ng-model="data.myselectrepeat">
+      <select class="form-control" name="myselectrepeat" id="myselectrepeat" ng-model="data.myselectrepeat">
         <option value="foo">bar</option>
         <option ng-repeat="item in list" value="{{ item.value }}">{{ item.label }}</option>
       </select>
@@ -132,9 +132,9 @@
 
   <div class="form-group">
     
-    <label for="f1mytextarea" class="control-label">My textarea</label>
+    <label for="mytextarea" class="control-label">My textarea</label>
 
-    <textarea placeholder="" class="form-control" name="f1mytextarea" id="f1mytextarea" ng-model="data.mytextarea" rows="7"></textarea>
+    <textarea placeholder="" class="form-control" name="mytextarea" id="mytextarea" ng-model="data.mytextarea" rows="7"></textarea>
 
   </div>
 
@@ -146,18 +146,18 @@
 
   </div>
 
-  <div class="form-group" ng-class="{'has-error': f1.sent && (f1['f1datepicker'].$invalid)}">
+  <div class="form-group" ng-class="{'has-error': f1.sent && (f1['datepicker'].$invalid)}">
     
-    <label for="f1datepicker" class="control-label">Datepicker field</label>
+    <label for="datepicker" class="control-label">Datepicker field</label>
 
     <div>
-      <input type="text" placeholder="DD/MM/AAAA" class="form-control" name="f1datepicker" id="f1datepicker" ng-model="data.datepicker" datepicker-popup="dd/MM/yyyy" datepicker-manual="" datepicker-options="datepickerOptions" required="" min-date-value="minDate">
+      <input type="text" placeholder="DD/MM/AAAA" class="form-control" name="datepicker" id="datepicker" ng-model="data.datepicker" datepicker-popup="dd/MM/yyyy" datepicker-manual="" datepicker-options="datepickerOptions" required="" min-date-value="minDate">
     </div>
 
-    <span class="help-block" ng-show="f1.sent && (f1['f1datepicker'].$invalid)">
-      <span ng-show="f1['f1datepicker'].$error.required">La fecha de finalización es obligatoria en formato DD/MM/AAAA</span>
-      <span ng-show="f1['f1datepicker'].$error.date">La fecha debe tener un formato válido DD/MM/AAAA</span>
-      <span ng-show="f1['f1datepicker'].$error.min">La fecha debe corresponder a hoy, o un día posterior</span>
+    <span class="help-block" ng-show="f1.sent && (f1['datepicker'].$invalid)">
+      <span ng-show="f1['datepicker'].$error.required">La fecha de finalización es obligatoria en formato DD/MM/AAAA</span>
+      <span ng-show="f1['datepicker'].$error.date">La fecha debe tener un formato válido DD/MM/AAAA</span>
+      <span ng-show="f1['datepicker'].$error.min">La fecha debe corresponder a hoy, o un día posterior</span>
     </span>
 
   </div>
@@ -168,7 +168,7 @@
 
     <div class="checkbox">
       <label>
-        <input type="checkbox" class="" name="f1mycheckbox" id="f1mycheckbox" ng-model="data.mycheckbox">
+        <input type="checkbox" class="" name="mycheckbox" id="mycheckbox" ng-model="data.mycheckbox">
         My checkbox
       </label>
     </div>
@@ -177,23 +177,23 @@
 
   <div class="form-group">
     
-    <label for="f1radios" class="control-label">My radios</label>
+    <label for="radios" class="control-label">My radios</label>
 
     <div class="radio">
       <label>
-        <input id="0" value="foo" type="radio" class="" name="f1radios" id="f1radios" ng-model="data.radios">
+        <input id="0" value="foo" type="radio" class="" name="radios" id="radios" ng-model="data.radios">
         Foo option
       </label>
     </div>
     <div class="radio">
       <label>
-        <input id="1" value="bar" type="radio" class="" name="f1radios" id="f1radios" ng-model="data.radios">
+        <input id="1" value="bar" type="radio" class="" name="radios" id="radios" ng-model="data.radios">
         Bar option
       </label>
     </div>
     <div class="radio">
       <label>
-        <input id="2" value="baz" type="radio" class="" name="f1radios" id="f1radios" ng-model="data.radios">
+        <input id="2" value="baz" type="radio" class="" name="radios" id="radios" ng-model="data.radios">
         Baz option
       </label>
     </div>
@@ -201,16 +201,16 @@
 
   </div>
 
-  <div class="form-group" ng-class="{'has-error': f1.sent && (f1['f1url'].$invalid)}">
+  <div class="form-group" ng-class="{'has-error': f1.sent && (f1['url'].$invalid)}">
     
-    <label for="f1url" class="control-label">My url</label>
+    <label for="url" class="control-label">My url</label>
 
     <div>
-      <input type="url" placeholder="" class="form-control" name="f1url" id="f1url" ng-model="data.url">
+      <input type="url" placeholder="" class="form-control" name="url" id="url" ng-model="data.url">
     </div>
 
-    <span class="help-block" ng-show="f1.sent && (f1['f1url'].$invalid)">
-      <span ng-show="f1['f1url'].$error.url">url required</span>
+    <span class="help-block" ng-show="f1.sent && (f1['url'].$invalid)">
+      <span ng-show="f1['url'].$error.url">url required</span>
     </span>
 
   </div>

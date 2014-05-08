@@ -1,10 +1,11 @@
 
-v1.3.1 [08 May 2014]
+v1.3.0 [08 May 2014]
 ====================
 
  * Fix select required validator.
  * Fix select to apply container attributes.
  * Refactor and DRY test code.
+ * Remove prefixes from generated code.
 
 
 v1.2.1 [27 Apr 2014]
