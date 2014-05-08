@@ -5,7 +5,8 @@ v1.3.0 [08 May 2014]
  * Fix select required validator.
  * Fix select to apply container attributes.
  * Refactor and DRY test code.
- * Remove prefixes from generated code.
+ * Remove prefixes from generated code (deprecates nameOnly function in forms).
+ * Deprecate match, mindate and maxdate validators in inputs.
 
 
 v1.2.1 [27 Apr 2014]
