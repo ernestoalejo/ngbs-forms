@@ -1,4 +1,10 @@
 
+v1.4.0 [22 May 2014]
+====================
+
+ * Add custom validators (for custom directives or angular-ui).
+
+
 v1.3.0 [08 May 2014]
 ====================
 
