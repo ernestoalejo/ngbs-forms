@@ -2,6 +2,8 @@
 
 
 module.exports = function(form) {
+  form.nameOnly('f1');
+
   form.attrs({
     foo: 'bar',
   });
