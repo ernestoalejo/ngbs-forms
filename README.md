@@ -15,8 +15,3 @@ npm install --save-dev ngbs-forms
 
 There are plugins for [Grunt](https://github.com/ernestoalejo/grunt-ngbs-forms)
 and [Gulp](https://github.com/ernestoalejo/gulp-ngbs-forms).
-
-
-## To Do
-
-Since the last large rewrite of the library we have no documentation. I'll write it ASAP.
