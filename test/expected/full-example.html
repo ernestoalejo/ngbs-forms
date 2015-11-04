@@ -151,7 +151,10 @@
     <label for="datepicker" class="control-label">Datepicker field</label>
 
     <div>
-      <input type="text" placeholder="DD/MM/AAAA" class="form-control" name="datepicker" id="datepicker" ng-model="data.datepicker" datepicker-popup="dd/MM/yyyy" datepicker-manual="" datepicker-options="datepickerOptions" required="" min-date-value="minDate">
+      <div class="input-group">
+        <input type="text" placeholder="DD/MM/AAAA" class="form-control" name="datepicker" id="datepicker" ng-model="data.datepicker" datepicker-popup="dd/MM/yyyy" datepicker-manual="" datepicker-options="datepickerOptions" required="" min-date-value="minDate">
+        <span class="input-group-btn"><button >select</button></span>
+      </div>
     </div>
 
     <span class="help-block" ng-show="f1.sent && (f1['datepicker'].$invalid)">

@@ -96,6 +96,8 @@ module.exports = function(form) {
       'datepicker-manual': '',
       'datepicker-options': 'datepickerOptions',
     })
+    .suffix('<button >select</button>')
+    .suffixClass('input-group-btn')
     .validators(function(field) {
       field.required('La fecha de finalización es obligatoria en formato DD/MM/AAAA');
       field.date('La fecha debe tener un formato válido DD/MM/AAAA');
