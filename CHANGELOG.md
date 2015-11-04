@@ -1,4 +1,11 @@
 
+v1.5.0 [4 Nov 2015]
+===================
+
+ * Add support for custom suffix and prefix classes in inputs.
+ * Use ng-click instead of ng-submit to prevent another button inside the form sending it unexpectedly.
+
+
 v1.4.1 [22 May 2014]
 ====================
 
