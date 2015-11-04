@@ -48,20 +48,3 @@ gulp.task('watch', function() {
         });
     }));
 });
-
-
-gulp.task('jison', function() {
-  return gulp.src('lang.jison')
-    .pipe(watch())
-    .pipe(through.obj(function(file, enc, callback) {
-      exec('jison lang.jison', function(error, stdout, stderr) {
-        if (error) {
-          gutil.log(gutil.colors.red(stdout));
-          gutil.log(gutil.colors.red(stderr));
-        } else {
-          gutil.log(gutil.colors.green('Parser generated!'));
-        }
-        callback();
-      });
-    }));
-});
