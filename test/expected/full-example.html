@@ -1,4 +1,4 @@
-<form role="form" name="f1" novalidate ng-init="f1.sent = false;" ng-submit="f1.sent = true; f1.$setPristine(); f1.$valid && submit();" autocomplete="off" foo="bar">
+<form role="form" name="f1" novalidate ng-init="f1.sent = false;" autocomplete="off" foo="bar">
 <fieldset>
 
   <div class="form-group">
@@ -220,17 +220,17 @@
 
   <div>
     <p>&nbsp;</p>
-    <button type="submit" class="btn btn-primary" ng-disabled="f1.sent && !f1.$valid">Send button</button>
+    <button type="submit" class="btn btn-primary" ng-click="f1.sent = true; f1.$setPristine();f1.$valid && submit()" ng-disabled="f1.sent && !f1.$valid">Send button</button>
   </div>
 
   <div>
     <p>&nbsp;</p>
-    <button type="submit" class="btn btn-primary" ng-disabled="f1.sent && !f1.$valid">Send button</button><a href="#">Cancel</a>
+    <button type="submit" class="btn btn-primary" ng-click="f1.sent = true; f1.$setPristine();f1.$valid && submit()" ng-disabled="f1.sent && !f1.$valid">Send button</button><a href="#">Cancel</a>
   </div>
 
   <div foo="bar">
     <p>&nbsp;</p>
-    <button type="submit" class="btn btn-primary" ng-disabled="f1.sent && !f1.$valid" baz="qux">Send button</button>
+    <button type="submit" class="btn btn-primary" ng-click="f1.sent = true; f1.$setPristine();f1.$valid && submit()" ng-disabled="f1.sent && !f1.$valid" baz="qux">Send button</button>
   </div>
 
 </fieldset>
