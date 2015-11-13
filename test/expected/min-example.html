@@ -1,4 +1,4 @@
-<form role="form" name="f0" novalidate ng-init="f0.sent = false;" autocomplete="off">
+<form role="form" name="f0" novalidate ng-init="f0.sent = false;" ng-submit="f0.sent = true; f0.$setPristine(); f0.$valid && submit();" autocomplete="off">
 <fieldset>
 
   <div class="form-group">
