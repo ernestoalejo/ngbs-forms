@@ -20,7 +20,7 @@ gulp.task('clean', function() {
 
 gulp.task('lint', function() {
   return gulp.src(['gulpfile.js', 'test/**/*.js', 'lib/**/*.js'])
-    .pipe(jshint('jshint.json'))
+    .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(jshint.reporter('fail'));
 });
